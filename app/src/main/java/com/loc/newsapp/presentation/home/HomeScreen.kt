@@ -1,6 +1,5 @@
 package com.loc.newsapp.presentation.home
 
-import android.provider.MediaStore.Audio.ArtistColumns
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.basicMarquee
@@ -26,18 +25,15 @@ import androidx.paging.compose.LazyPagingItems
 import com.loc.newsapp.R
 import com.loc.newsapp.domain.model.Article
 import com.loc.newsapp.presentation.Dimens.MediumPadding1
-import com.loc.newsapp.presentation.Dimens.MediumPadding2
-import com.loc.newsapp.presentation.Dimens.SmallPadding
 import com.loc.newsapp.presentation.common.ArticleList
 import com.loc.newsapp.presentation.common.SearchBar
-import com.loc.newsapp.presentation.navgraph.Route
-import java.io.File.separator
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun HomeScreen(
     articles: LazyPagingItems<Article>,
-    navigate: (String) -> Unit
+    navigateToSearch: () -> Unit,
+    navigateToDetails: (Article) -> Unit,
 ) {
     val titles by remember {
         derivedStateOf {
@@ -77,7 +73,7 @@ fun HomeScreen(
             onValueChange = {},
             onSearch = { /*TODO*/ },
             onClick = {
-                navigate(Route.SearchScreen.route)
+                navigateToSearch()
             }
         )
 
@@ -98,7 +94,7 @@ fun HomeScreen(
         ArticleList(
             articles = articles,
             onClick = {
-                navigate(Route.DetailScreen.route)
+                navigateToDetails(it)
             },
         )
     }

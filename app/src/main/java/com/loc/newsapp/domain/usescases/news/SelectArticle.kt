@@ -3,12 +3,12 @@ package com.loc.newsapp.domain.usescases.news
 import com.loc.newsapp.domain.model.Article
 import com.loc.newsapp.domain.repository.NewsRepository
 
-class UpsertArticle(
+class SelectArticle(
     private val newsRepository: NewsRepository
 ) {
     suspend operator fun invoke(
-        article: Article
-    ) {
-        newsRepository.upsertArticle(article)
+        url: String
+    ): Article? {
+        return newsRepository.selectArticle(url)
     }
 }

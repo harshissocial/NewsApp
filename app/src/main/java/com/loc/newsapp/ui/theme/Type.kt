@@ -5,7 +5,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.loc.newsapp.R
 
@@ -19,7 +18,7 @@ val Poppins = FontFamily(
 
 // Set of Material typography styles to start with
 // body is "Text" in the Figma Design
-// label small is xsmall in Figma Design
+// label small is x small in Figma Design
 val Typography = Typography(
     displaySmall = TextStyle(
         fontSize = 24.sp,

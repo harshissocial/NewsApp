@@ -9,21 +9,18 @@ import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.currentCompositionLocalContext
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
-
-import androidx.navigation.Navigator
 import com.loc.newsapp.R
+import com.loc.newsapp.domain.model.Article
 import com.loc.newsapp.presentation.Dimens.MediumPadding1
 import com.loc.newsapp.presentation.common.ArticleList
-import com.loc.newsapp.presentation.navgraph.Route
 
 @Composable
 fun BookmarkScreen(
     state: BookmarkState,
-    navigate: (String) -> Unit
+    navigateToDetails: (Article) -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -48,7 +45,7 @@ fun BookmarkScreen(
         ArticleList(
             articles = state.articles,
             onClick = {
-                Route.DetailScreen.route
+                navigateToDetails(it)
             }
         )
     }

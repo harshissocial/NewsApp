@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
 import com.loc.newsapp.domain.usescases.news.NewsUsesCases
-import com.loc.newsapp.domain.usescases.news.SearchNews
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
