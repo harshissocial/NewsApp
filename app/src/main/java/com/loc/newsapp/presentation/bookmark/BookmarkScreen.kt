@@ -33,8 +33,8 @@ fun BookmarkScreen(
             )
     ) {
         Text(
-            text = "Bookmark",
-            style = MaterialTheme.typography.displayMedium.copy(
+            text = "Bookmarks",
+            style = MaterialTheme.typography.displaySmall.copy(
                 fontWeight = FontWeight.Bold
             ),
             color = colorResource(id = R.color.text_title)

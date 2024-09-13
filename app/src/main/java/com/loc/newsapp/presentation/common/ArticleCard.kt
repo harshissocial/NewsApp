@@ -55,7 +55,9 @@ fun ArticleCard(
             contentDescription = null,
             contentScale = ContentScale.Crop
         )
-
+        
+        Spacer(modifier = Modifier.width(ExtraSmallPadding2))
+        
         Column(
             verticalArrangement = Arrangement
                 .SpaceAround,
@@ -71,7 +73,7 @@ fun ArticleCard(
                 color = colorResource(
                     id = R.color.text_title
                 ),
-                maxLines = 2,
+                maxLines = 3,
                 overflow = TextOverflow.Ellipsis
             )
             Row(
@@ -91,7 +93,7 @@ fun ArticleCard(
                 )
                 Spacer(modifier = Modifier.width(ExtraSmallPadding2))
                 Text(
-                    text = article.publishedAt,
+                    text = article.publishedAt.substringBefore("T"),
                     style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold),
                     color = colorResource(
                         id = R.color.body

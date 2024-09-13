@@ -79,7 +79,7 @@ fun NewsNavigator() {
                         when (index) {
                             0 -> navigateToTap(navController, Route.HomeScreen.route)
                             1 -> navigateToTap(navController, Route.SearchScreen.route)
-                            2 -> navigateToTap(navController, Route.DetailScreen.route)
+                            2 -> navigateToTap(navController, Route.BookmarkScreen.route)
                         }
                     }
                 )

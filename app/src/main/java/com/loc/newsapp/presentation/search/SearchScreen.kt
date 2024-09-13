@@ -17,6 +17,7 @@ import com.loc.newsapp.presentation.common.SearchBar
 @Composable
 fun SearchScreen(
     state: SearchState,
+    isSearchBarClicked: Boolean = false,
     event: (SearchEvent) -> Unit,
     navigateToDetails: (Article) -> Unit
 ) {
@@ -24,8 +25,6 @@ fun SearchScreen(
         modifier = Modifier
             .padding(
                 top = MediumPadding1,
-                start = MediumPadding1,
-                end = MediumPadding1
             )
             .fillMaxSize()
             .statusBarsPadding()
@@ -41,9 +40,13 @@ fun SearchScreen(
         Spacer(modifier = Modifier.height(MediumPadding1))
         state.articles?.let {
             val articles = it.collectAsLazyPagingItems()
-            ArticleList(articles = articles, onClick = { article ->
-                navigateToDetails(article)
-            })
+            ArticleList(
+                articles = articles,
+                onClick = { article ->
+                    navigateToDetails(article)
+                },
+                modifier = Modifier.padding(horizontal = MediumPadding1)
+            )
         }
     }
 }

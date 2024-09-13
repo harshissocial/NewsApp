@@ -4,6 +4,7 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.basicMarquee
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -56,6 +57,7 @@ fun HomeScreen(
             .padding(top = MediumPadding1)
             .statusBarsPadding()
     ) {
+
         Image(
             painter = painterResource(id = R.drawable.ic_logo),
             contentDescription = null,
@@ -71,10 +73,10 @@ fun HomeScreen(
             text = "",
             readOnly = true,
             onValueChange = {},
-            onSearch = { /*TODO*/ },
+            onSearch = {},
             onClick = {
                 navigateToSearch()
-            }
+            },
         )
 
         Spacer(modifier = Modifier.height(MediumPadding1))
@@ -83,7 +85,7 @@ fun HomeScreen(
             text = titles,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = MediumPadding1)
+                .padding(horizontal = MediumPadding1)
                 .basicMarquee(),
             fontSize = 12.sp,
             color = colorResource(id = R.color.placeholder)
@@ -96,6 +98,7 @@ fun HomeScreen(
             onClick = {
                 navigateToDetails(it)
             },
+            modifier = Modifier.padding(horizontal = MediumPadding1)
         )
     }
 }
